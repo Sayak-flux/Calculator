@@ -1,0 +1,43 @@
+import java.util.Scanner;
+
+public class Calculator {
+	void accept()
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Menu\nEnter 0 for exit\nEnter a number\nEnter usual symbols for arithmetic operation and this calculator can handle decimal values with precision upto 31 decimals");
+		double i=sc.nextDouble();
+		String ch=sc.next();
+		do
+		{
+			switch(ch)
+			{
+			case "+":
+				i+=sc.nextDouble();
+				System.out.println(i);
+				break;
+			case "-":
+			    i-=sc.nextDouble();
+			    System.out.println(i);
+			    break;
+			case "*":
+			   i*=sc.nextDouble();
+			   System.out.println(i);
+			   break;
+			case "/":
+				i/=sc.nextDouble();
+				System.out.println(i);
+				break;
+				default:
+					System.out.println("Wrong input please type the symbol in between */-+");
+			}
+			ch=sc.next();
+		}
+		while(ch.compareTo("exit")!=0);
+	}
+	public static void main(String args[])
+	{
+		Calculator ob=new Calculator();
+		ob.accept();
+	}
+
+}
