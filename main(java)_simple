@@ -1,39 +1,94 @@
-import java.util.Scanner;
+// INHERITANCE TO HANDLE INPUTMISMATCH_EXCEPTION
+import java.util.*;
+public class ent {
+	static int int_()
+	{
+		Scanner sc=new Scanner(System.in);
+        while(true)
+        {
+        try
+        {
+            return sc.nextInt();
+        }
+        catch(InputMismatchException e)
+        {
+            sc.next();
+            System.out.println("INVALID");
+            continue;}
+        }
+	}
+	static double double_()
+	{
+		Scanner sc=new Scanner(System.in);
+        while(true)
+        {
+        try
+        {
+            return sc.nextDouble();
+        }
+        catch(InputMismatchException e)
+        {
+            sc.next();
+            System.out.println("INVALID");
+            continue;}
+        }
+	}
+	static String String_()
+	{
+		Scanner sc=new Scanner(System.in);
+		return sc.next();
+	}
+	static String String_L()
+	{
+		Scanner sc=new Scanner(System.in);
+		return sc.nextLine();
+	}
 
-public class Calculator {
+}
+
+
+// THE ACTUAL PROGRAM
+import java.util.*;
+
+public class Calculator extends ent {
 	void accept()
 	{
 		Scanner sc=new Scanner(System.in);
 		System.out.println("Menu\nEnter 0 for exit\nEnter a number\nEnter usual symbols for arithmetic operation and this calculator can handle decimal values with precision upto 31 decimals");
-		double i=sc.nextDouble();
-		String ch=sc.next();
+		double i=super.double_();
+		String ch=super.String_();
+		calculation(ch,i);
+	}
+	void calculation(String ch,double i)
+	{
 		do
 		{
 			switch(ch)
 			{
 			case "+":
-				i+=sc.nextDouble();
+				i+=super.double_();
 				System.out.println(i);
 				break;
 			case "-":
-			    i-=sc.nextDouble();
+			    i-=super.double_();
 			    System.out.println(i);
 			    break;
 			case "*":
-			   i*=sc.nextDouble();
+			   i*=super.double_();
 			   System.out.println(i);
 			   break;
 			case "/":
-				i/=sc.nextDouble();
+				i/=super.double_();
 				System.out.println(i);
 				break;
 				default:
 					System.out.println("Wrong input please type the symbol in between */-+");
 			}
-			ch=sc.next();
+			ch=super.String_();
 		}
 		while(ch.compareTo("exit")!=0);
 	}
+	
 	public static void main(String args[])
 	{
 		Calculator ob=new Calculator();
@@ -41,3 +96,4 @@ public class Calculator {
 	}
 
 }
+
