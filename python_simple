@@ -1,0 +1,56 @@
+import sys
+def int_():
+    while(True):
+        try:
+            n=int(input())
+            return n
+        except ValueError:
+            continue
+def choice():
+    while(True):
+        ls=['+','-','*','/','%','^','e']
+        n=input()[0]
+        if(n not in ls):
+            print("RENTER")
+            continue
+        else:
+            return n
+def code():
+    print("ENTER NUMBER")
+    n=int_()
+    print("ENTER CHOICE LIKE /*-+^%")
+    ch=choice()
+    while (not ch == 'e'):
+        match(ch):
+            case '+':
+                print("ENTER NUMBER")
+                n+=int_()
+                print("EQUALS",n)
+            case '-':
+                print("ENTER NUMBER")
+                n-=int_()
+                print("EQUALS",n)
+            case '*':
+                print("ENTER NUMBER")
+                n*=int_()
+                print("EQUALS",n)
+
+            case '/':
+                print("ENTER NUMBER")
+                n=round(n/int_(),6)
+                print("EQUALS",n)
+
+            case '%':
+                print("ENTER NUMBER")
+                n=n%int_()
+                print("EQUALS",n)
+
+            case '^':
+                print("ENTER NUMBER")
+                n=n**int_()
+                print("EQUALS",n)
+
+        print("ENTER CHOICE LIKE /*-+^%")
+        ch=choice()
+if __name__=="__main__":
+    code()
